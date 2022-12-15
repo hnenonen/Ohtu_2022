@@ -11,7 +11,7 @@ def parse_from_bibtex(bib_data):
         year = reference.fields['year']
         publisher = reference.fields['publisher']
         name = author.split()[0].strip(',')+year
-        field = {author, title, year, publisher}
+        field = {'author': author, 'title':title, 'year': year, 'publisher': publisher}
         reference = [name, type, field]
         references.append(reference)
     return references
@@ -22,4 +22,4 @@ def import_bibtex(file):
     for reference in references:
         create(reference[0], reference[1], reference[2])
 
-#import_bibtex('test.bib') # for testing ...
+import_bibtex('test.bib') # for testing ...
